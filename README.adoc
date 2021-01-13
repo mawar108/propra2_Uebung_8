@@ -1,0 +1,57 @@
+= Softwareentwicklung im Team: Praktische Übung 8
+:icons: font
+:icon-set: fa
+:experimental:
+:source-highlighter: rouge
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:stem: latexmath
+endif::[]
+
+== Ziele der Übung
+
+In der Übung sollen Sie das Thema ArchUnit praktisch vertiefen. Entsprechend erwarten wir von Ihnen, dass Sie mit ArchUnit vertraut sind.   
+
+== Aufgabe
+Wir verwenden eine Anwendung, die ähnlich zur Kontaktlistenverwaltung aus der letzten Woche ist. Die Datenbank funktioniert genau wie in der letzten Woche. 
+Sie sollen nun mithilfe von ArchUnit Tests schrieben, die einige gewünschte Eigenschaften prüfen. 
+
+Wenn Sie einen Test geschrieben haben, der vom Code erfüllt wird, müssen Sie demonstrieren, dass der Test auch wirklich fehlschlagen kann, indem Sie den Code so ändern, dass die Eigenschaft nicht mehr erfüllt ist. Falls das System die Eigenschaft nicht erfüllt, sollen Sie den Code so ändern, dass die Eigenschaft erfüllt wird.
+
+=== Anfragen an die Architektur
+
+* Keine Klasse oder Methode ist mit `@Deprecated` annotiert.
+* Alle Felder, die nicht `final` sind, müssen mit `@Mutable` markiert sein.
+* Alle Methoden und Konstruktoren sind public.
+* Methoden und Konstruktoren, die mit `@ClassOnly` annotiert sind, dürfen nicht von anderen Klassen aufgerufen werden.
++
+NOTE: Das ist nicht die sinnvollste Regel, aber sie demonstriert, wie mächtig ArchUnit in Kombination mit Annotationen ist.
+* Es wird ausschließlich Konstruktorinjection verwendet.
++
+TIP: Vermutlich ist es hier einfacher, die anderen Formen von Injection auszuschließen. 
+
+* Methoden dürfen keine Methoden in der gleichen Klasse aufrufen, die nicht mit `@ClassOnly` annotiert wurden.
++
+TIP: Hier müssen Sie ziemlich sicher einen eigenen Check analog zu `HaveExactlyOneAggregateRoot` aus dem Beispiel schreiben. 
+
+== Ablauf der Übung
+
+. Schalten Sie *mindestens* das Mikrofon, aber besser auch die Kamera, ein 
+. Am Anfang gibt es eine kurze Vorstellungsrunde 
+. Es wird festgelegt, in welcher Reihenfolge die "Driver" Rolle übernommen wird
+. Die erste Person teilt Ihren Screen und übernimmt mithilfe von `mob` die Session
+. Es wird an der Problemstellung gemeinsam gearbeitet nach den Regeln des Mob Programmings 
+. Nach ca. der Hälfte der Zeit gibt es ein Feedback durch die Tutorin oder den Tutor
+. Es wird weiter an der Problemstellung gearbeitet
+. ca. 10 Minuten vor Ende der Session bekommen Sie Ihre Abschlussbewertung 
+
+NOTE: Diese praktische Übung wird für die Zulassung gewertet. Sie müssen vorbereitet sein und einen hinreichenden Beitrag leisten. 
+
+== Verhaltensregeln
+
+Wir erwarten von Ihnen einen respektvollen Umgang miteinander. Es gilt grundsätzlich bei uns der https://berlincodeofconduct.org/de/[Berlin Code of Conduct]. Die TutorInnen haben die Aufgabe, die Einhaltung der Regeln zu überwachen und können bei Verstößen gegen den Verhaltenskodex Personen aus der praktischen Übung entfernen.   
+
