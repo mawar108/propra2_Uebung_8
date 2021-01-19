@@ -22,7 +22,11 @@ import org.springframework.web.client.HttpClientErrorException;
 public class KontaktListen {
 
   @Autowired
-  KontaktListeRepository repo;
+  final KontaktListeRepository repo;
+
+  public KontaktListen(KontaktListeRepository repo) {
+    this.repo = repo;
+  }
 
   public SortedMap<Integer, Long> kontakteNachZeitpunktSortiert() {
     List<KontaktListe> listen = repo.findAll();

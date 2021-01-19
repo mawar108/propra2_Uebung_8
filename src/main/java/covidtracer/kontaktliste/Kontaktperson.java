@@ -3,9 +3,9 @@ package covidtracer.kontaktliste;
 import java.util.Objects;
 
 public class Kontaktperson {
-  public String nachname;
-  public String vorname;
-  public String kontaktinformationen;
+  public final String nachname;
+  public final String vorname;
+  public final String kontaktinformationen;
 
   public Kontaktperson(String nachname, String vorname, String kontaktinformationen) {
     this.nachname = nachname;

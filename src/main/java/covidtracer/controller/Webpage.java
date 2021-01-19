@@ -6,12 +6,8 @@ import covidtracer.kontaktliste.Kontaktperson;
 import covidtracer.persistence.KontaktListeRepository;
 import covidtracer.service.KontaktListen;
 import java.time.LocalDate;
-import java.time.Period;
-import java.util.List;
-import java.util.Map;
 import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -25,10 +21,15 @@ import org.springframework.web.client.HttpClientErrorException;
 public class Webpage {
 
   @Autowired
-  KontaktListen listen;
+  final KontaktListen listen;
 
   @Autowired
-  KontaktListeRepository repo;
+  final KontaktListeRepository repo;
+
+  public Webpage(KontaktListen listen, KontaktListeRepository repo) {
+    this.listen = listen;
+    this.repo = repo;
+  }
 
   @GetMapping("/")
   public String index(Model model) {

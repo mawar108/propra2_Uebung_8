@@ -2,10 +2,9 @@ package covidtracer;
 
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.lang.ArchRule;
+import covidtracer.stereotypes.Mutable;
 
-
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noMethods;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 
 @AnalyzeClasses(packagesOf = CovidtracerApplication.class)
 public class ArchTest {
@@ -19,4 +18,13 @@ public class ArchTest {
 	static final ArchRule noMethodIsDeprecated= noMethods()
 			.should()
 			.beAnnotatedWith(Deprecated.class);
+
+	@com.tngtech.archunit.junit.ArchTest
+	static final ArchRule allNonFinalFieldsAreMutable = fields()
+			.that()
+			.areNotFinal()
+			.should()
+			.beAnnotatedWith(Mutable.class);
+
+
 }
