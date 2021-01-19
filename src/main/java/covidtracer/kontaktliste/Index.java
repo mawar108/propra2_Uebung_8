@@ -1,5 +1,7 @@
 package covidtracer.kontaktliste;
 
+import covidtracer.stereotypes.ClassOnly;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
