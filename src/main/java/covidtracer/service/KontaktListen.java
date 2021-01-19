@@ -38,7 +38,7 @@ public class KontaktListen {
   }
 
   @ClassOnly
-  private static int alter(KontaktListe liste) {
+  public static int alter(KontaktListe liste) {
     LocalDate erstbefund = liste.getIndex().getErstbefund();
     LocalDate now = LocalDate.now();
     return Period.between(erstbefund, now).getDays();

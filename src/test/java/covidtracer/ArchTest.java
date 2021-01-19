@@ -1,5 +1,6 @@
 package covidtracer;
 
+import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.lang.ArchRule;
 import covidtracer.stereotypes.Mutable;
@@ -25,6 +26,20 @@ public class ArchTest {
 			.areNotFinal()
 			.should()
 			.beAnnotatedWith(Mutable.class);
+
+	@com.tngtech.archunit.junit.ArchTest
+	static final ArchRule allMethodsArePublic = methods()
+			.that()
+			.doNotHaveModifier(JavaModifier.SYNTHETIC)
+			.and()
+			.doNotHaveModifier(JavaModifier.BRIDGE)
+			.should()
+			.bePublic();
+
+	@com.tngtech.archunit.junit.ArchTest
+	static final ArchRule allConstructorsArePublic = constructors()
+			.should()
+			.bePublic();
 
 
 }

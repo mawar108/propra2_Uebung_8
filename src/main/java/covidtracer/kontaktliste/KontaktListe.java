@@ -37,7 +37,7 @@ public class KontaktListe {
   }
 
   @ClassOnly
-  private void touch() {
+  public void touch() {
     changed = LocalDateTime.now();
   }
 
